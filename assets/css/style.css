@@ -80,30 +80,40 @@
         background: rgba(0, 0, 0, 0.7) !important;
     }
 
-  .name {
-        font-family: 'futura_md_btbold_italic';
-        font-size: 2vw;
-        color: white;
-  }
+    #navMenu.navbar-menu.is-active {
+        background: transparent;
+        padding: 0;
+    }
 
-  .header-word {
+    a.navbar-item:hover {
+        background: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .name {
         font-family: 'futura_md_btbold_italic';
-        font-size: 1vw;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .header-word {
+        font-family: 'futura_md_btbold_italic';
+        font-size: 1rem;
         color: white;
     }
 
     .twitter-icon {
-        font-size: 2.7vw;
+        font-size: 2.4rem;
         color: #4dadf7;
     }
 
     .twitter-icon:hover {
-        color: #1DA1F2;
+        color: #0c86d0;
     }
 
     .github-icon {
-        font-size: 2.7vw;
-        color: #6e5494;
+        font-size: 2.4rem;
+        /* color: #6e5494; */
+        color: #7f63a7;
     }
 
     .github-icon:hover {
@@ -111,32 +121,28 @@
     }
 
     .linkedin-icon {
-        font-size: 2.7vw;
+        /* font-size: 2.7vw; */
+        font-size: 2.4rem;
         color: #0077b5;
     }
 
     .linkedin-icon:hover {
-        color: #006ca4;
+        color: #005682;
     }
 
-    .free-code-camp-div {
-        background-color: #006400;
-        height: 2.4vw;
-        margin-top: 0.15vw;
-        border-radius: 0.2vw;
+    .navbar-item img {
+        background: green;
+        max-height: 2.1rem;
+        margin-top: 0.1rem;
+        border-radius: 3px;
     }
 
-    .free-code-camp-div:hover {
-        background-color: #005300;
+    .free-code-camp-icon:hover {
+        background: #006400;
     }
-
-    .free-code-camp-icon {
-        margin-top: 0.15vw;
-        padding: 0.1vw;
-        font-size: 2.1vw;
-        color: #ccc;
-    }
-
-
-
     
+    #nav-burger {
+        margin-top: 6px;
+        color: white;
+        margin-left: inherit;
+    }
