@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 400
+      "value": 600
     },
     "color": {
       "value": "#fff"
@@ -14,7 +14,7 @@
       }
     },
     "opacity": {
-      "value": 0.5,
+      "value": 0.1,
       "random": true
     },
     "size": {
@@ -22,19 +22,20 @@
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 30
+        "speed": 10
       }
     },
     "line_linked": {
       "enable": true,
-      "distance": 120,
+      "distance": 50,
       "color": "#fff",
+      "opacity": 0.3,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 5,
-      "direction": "none",
+      "speed": 1,
+      "direction": "bottom",
       "straight": false
     }
   },
@@ -52,11 +53,12 @@
     "modes": {
       "repulse": {
         "distance": 50,
-        "duration": 0.4
+        "speed": 500
       },
       "push": {
         "particles_nb": 4
       }
     }
-  }
+  },
+  "retina_detect": true
 }
