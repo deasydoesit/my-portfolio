@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
 </head>
 <body>
-    <div class="width-control">
+    <div class="width-control-header">
         <nav class="navbar is-transparent sit-behind">
             <div class="navbar-brand">
                 <a id="nav-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
@@ -55,9 +55,18 @@
             </div>
         </nav>
     </div>
-    <div id="particles-js"></div>
-    
-
+    <div id="particles-js">
+        <section class="section width-control-about">
+            <div class="columns">
+                <div class="column">
+                    <img src="./assets/images/myphoto.jpg">
+                </div>
+                <div class="column is-three-fifths">
+                    <p class="about">I am a software developer with experience in Java, C/C++, JavaScript, Node.js, and React.js, and have a passion for using my programming knowledge to bring ideas to life. In my previous role as a patent agent, I had the privilege of working with inventors at various Fortune 100 companies to draft and prosecute patent applications for their inventions in the computer arts. While I enjoyed the nuances and intricacies of patent law, I found myself becoming inspired by the inventors with whom I worked and increasingly captivated by the software development that goes into the materialization of inventions. In the next phase of my career, I seek a role as a software developer at a company where I can learn, grow, and continue to master the art of programming, as well as become an inventor myself.</p>
+                </div>
+            </div>
+        </section>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         particlesJS.load('particles-js', './assets/particles/particles.json', function() {
@@ -65,25 +74,24 @@
         });
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get all "navbar-burger" elements
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-            // Add a click event on each of them
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-                // Get the target from the "data-target" attribute
-                var target = $el.dataset.target;
-                var $target = document.getElementById(target);
-                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                $el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all "navbar-burger" elements
+            var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+                // Add a click event on each of them
+                $navbarBurgers.forEach(function ($el) {
+                    $el.addEventListener('click', function () {
+                    // Get the target from the "data-target" attribute
+                    var target = $el.dataset.target;
+                    var $target = document.getElementById(target);
+                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                    $el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                    });
                 });
-            });
-        }
-    });
+            }
+        });
     </script>
 </body>
 </html>
