@@ -173,6 +173,7 @@
 
     .width-control-about {
         position:absolute;
+        display: none;
         width: 85%;
         max-width: 1000px;
         top: 20%;

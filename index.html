@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Darwin Rinderer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css"/>
 </head>
 <body>
     <div class="width-control-header">
@@ -24,7 +25,7 @@
             </div>
             <div id="navMenu" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="#">
+                    <a id="about-button" class="navbar-item">
                         <span class="header-word">About me</span>
                     </a>
                     <a class="navbar-item" href="#">
@@ -56,7 +57,7 @@
         </nav>
     </div>
     <div id="particles-js">
-        <section class="section width-control-about">
+        <section id="about" class="section width-control-about">
             <div class="columns">
                 <div class="column">
                     <img src="./assets/images/myphoto.jpg">
@@ -67,6 +68,7 @@
             </div>
         </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         particlesJS.load('particles-js', './assets/particles/particles.json', function() {
@@ -74,23 +76,28 @@
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all "navbar-burger" elements
-            var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            // Check if there are any navbar burgers
-            if ($navbarBurgers.length > 0) {
-                // Add a click event on each of them
-                $navbarBurgers.forEach(function ($el) {
-                    $el.addEventListener('click', function () {
-                    // Get the target from the "data-target" attribute
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
+        $(document).ready(function() {
+
+            $("#about-button").click(function() {
+                var x = $("#about").css("display")
+                if (x == "block") {
+                    $("#about").addClass("animated fadeOut").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
+                        function() {
+                        $(this).removeClass("animated fadeOut").css("display", "none");
                     });
-                });
-            }
+                } else {
+                    $("#about").css("display", "block");
+                    $("#about").addClass("animated fadeIn").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
+                        function() {
+                        $(this).removeClass("animated fadeIn")
+                    });
+                }
+            });
+
+            $(".navbar-burger").click(function() {
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            });
         });
     </script>
 </body>
