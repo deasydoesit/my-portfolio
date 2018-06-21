@@ -25,13 +25,13 @@
             </div>
             <div id="navMenu" class="navbar-menu">
                 <div class="navbar-start">
-                    <a id="about-button" class="navbar-item">
+                    <a id="about-button" class="navbar-item content-item" data-target="#about">
                         <span class="header-word">About me</span>
                     </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item content-item" data-target="#patents">
                         <span class="header-word">Drafted patents</span>
                     </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item content-item" data-target="#dev">
                         <span class="header-word">Development</span>
                     </a>
                 </div>
@@ -39,13 +39,13 @@
                     <div class="navbar-item">
                         <div class="field is-grouped">
                             <p class="control">
-                                <i class="fab fa-github-square github-icon"></i>
+                                <a href ="https://github.com/deasydoesit"><i class="fab fa-github-square github-icon"></i></a>
                             </p>
                             <p class="control">
-                                <img src="assets/images/glyph.png" class="free-code-camp-icon">
+                                <a href="https://www.freecodecamp.org/deasydoesit"><img src="assets/images/glyph.png" class="free-code-camp-icon"></a>
                             </p>
                             <p class="control">
-                                <i class="fab fa-linkedin linkedin-icon"></i>
+                                <a href="https://www.linkedin.com/in/darwinrinderer/"><i class="fab fa-linkedin linkedin-icon"></i></a>
                             </p>
                             <p class="control">
                                 <i class="fab fa-twitter-square twitter-icon"></i>
@@ -60,7 +60,7 @@
         <section id="about" class="section width-control-about">
             <div class="columns">
                 <div class="column">
-                    <img src="./assets/images/myphoto.jpg">
+                    <img id="me" src="./assets/images/myphoto.jpg">
                 </div>
                 <div class="column is-three-fifths">
                     <p class="about">I am a software developer with experience in Java, C/C++, JavaScript, Node.js, and React.js, and have a passion for using my programming knowledge to bring ideas to life. In my previous role as a patent agent, I had the privilege of working with inventors at various Fortune 100 companies to draft and prosecute patent applications for their inventions in the computer arts. While I enjoyed the nuances and intricacies of patent law, I found myself becoming inspired by the inventors with whom I worked and increasingly captivated by the software development that goes into the materialization of inventions. In the next phase of my career, I seek a role as a software developer at a company where I can learn, grow, and continue to master the art of programming, as well as become an inventor myself.</p>
@@ -77,6 +77,16 @@
     </script>
     <script>
         $(document).ready(function() {
+
+            // $(".navbar-start").on("click", ".content-item", function() {
+            //     var x = $(this).data()["target"];
+            //     var children = $(".navbar-start").children();
+            //     var arr = [];
+            //     for (var i = 0; i < children.length; i++){
+            //         arr.push($(children[i]).data()["target"]); 
+            //     }
+            //     console.log(arr);
+            // })
 
             $("#about-button").click(function() {
                 var x = $("#about").css("display")
