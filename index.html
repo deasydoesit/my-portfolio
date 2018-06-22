@@ -110,26 +110,19 @@
             //     height: getHeightInPixels()
             // }); 
 
-//             $("#about-button").click(function() {
-//                 var x = $("#about").css("display")
-//                 if (x == "block") {
-//                     $("#about").addClass("animated fadeOut").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
-//                         function() {
-//                         $(this).removeClass("animated fadeOut").css("display", "none");
-//                     });
-//                 } else {
-//                     $("#about").css("display", "block");
-//                     $("#about").addClass("animated fadeIn").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
-//                         function() {
-//                         $(this).removeClass("animated fadeIn")
-//                     });
-//                 }
 
             $(".navbar-burger").click(function() {
                 $(".navbar-burger").toggleClass("is-active");
                 $(".navbar-menu").toggleClass("is-active");
             });
-        });
+
+            $("#about-button").click(function() {
+                if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+                }
+            });
+    });
     </script>
 </body>
 </html>

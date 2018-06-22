@@ -205,9 +205,9 @@ var pJS = function(tag_id, params){
 
         console.log(aboutSize.offsetHeight);
         var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
-        var targetHeight = (aboutSize.offsetHeight + 300);
+        var targetHeight = (aboutSize.offsetHeight + 234);
 
-        if(aboutSize.offsetHeight > heightDoc) {
+        if((about.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
@@ -269,8 +269,8 @@ var pJS = function(tag_id, params){
     clickedButton.addEventListener('click', function(){
 
         about.style.display = "block";
-        var targetHeight = (about.offsetHeight + 300);
-        if(about.offsetHeight > heightDoc) {
+        var targetHeight = (about.offsetHeight + 234);
+        if((about.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
