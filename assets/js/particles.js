@@ -190,6 +190,12 @@ var pJS = function(tag_id, params){
 
   pJS.fn.canvasSize = function(){
 
+    var body = document.body;
+    var html = document.documentElement;
+
+    var aboutSize = document.getElementById('about');
+    var canvasCont = document.getElementById('particles-js');
+
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
@@ -197,8 +203,19 @@ var pJS = function(tag_id, params){
 
       window.addEventListener('resize', function(){
 
+        console.log(aboutSize.offsetHeight);
+        var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+        var targetHeight = (aboutSize.offsetHeight + 300);
+
+        if(aboutSize.offsetHeight > heightDoc) {
+          canvasCont.style.height = targetHeight + "px";
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        } else {
+          canvasCont.style.height = heightDoc + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        }  
 
           /* resize canvas */
           if(pJS.tmp.retina){
@@ -227,22 +244,92 @@ var pJS = function(tag_id, params){
   };
 
   //IM EDITING HERE
-  pJS.fn.canvasSizeOnClick = function(){
 
-    var clickedEl = document.getElementById('about-button');
-    var targetSize = document.getElementById('about');
+  //About click
+  pJS.fn.canvasSizeOnAboutClick = function(){
+    //clicked button
+    var clickedButton = document.getElementById('about-button');
+
+    //element to be displayed
+    var about = document.getElementById('about');
+
+    //canvas container
     var canvasCont = document.getElementById('particles-js');
 
+    //body height
+    var body = document.body;
+    var html = document.documentElement;
+
+    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+
+    //canvas dimensions 
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    clickedEl.addEventListener('click', function(){
-        targetSize.style.display = "block";
-        var height = targetSize.offsetHeight + 300 + "px";
-        canvasCont.style.height = height;
+    clickedButton.addEventListener('click', function(){
+
+        about.style.display = "block";
+        var targetHeight = (about.offsetHeight + 300);
+        if(about.offsetHeight > heightDoc) {
+          canvasCont.style.height = targetHeight + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        } else {
+          canvasCont.style.height = heightDoc + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        }  
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+      /* density particles enabled */
+      pJS.fn.vendors.densityAutoParticles();
+
+    });
+
+  };
+
+  //DARWIN RINDERER CLICK
+  pJS.fn.canvasSizeOnMainClick = function(){
+    //clicked button
+    var clickedButton = document.getElementById('darwin');
+
+    //canvas container
+    var canvasCont = document.getElementById('particles-js');
+    var aboutSize = document.getElementById('about');
+
+    //body height
+    var body = document.body;
+    var html = document.documentElement;
+
+    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+
+    //canvas dimensions 
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
+
+    clickedButton.addEventListener('click', function(){
+
+        aboutSize.style.display = "none";
+
+        canvasCont.style.height = heightDoc + "px";
         pJS.canvas.w = pJS.canvas.el.offsetWidth;
         pJS.canvas.h = pJS.canvas.el.offsetHeight;
-
+        
         /* resize canvas */
         if(pJS.tmp.retina){
           pJS.canvas.w *= pJS.canvas.pxratio;
@@ -1418,7 +1505,8 @@ var pJS = function(tag_id, params){
     pJS.fn.retinaInit();
     pJS.fn.canvasInit();
     pJS.fn.canvasSize();
-    pJS.fn.canvasSizeOnClick();
+    pJS.fn.canvasSizeOnAboutClick();
+    pJS.fn.canvasSizeOnMainClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
     pJS.fn.vendors.densityAutoParticles();
