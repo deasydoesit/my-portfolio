@@ -48,7 +48,8 @@
       "onclick": {
         "enable": true,
         "mode": "push"
-      }
+      },
+      "resize": true
     },
     "modes": {
       "repulse": {

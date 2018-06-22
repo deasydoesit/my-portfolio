@@ -172,7 +172,8 @@
     /* ---- About ---- */
 
     .width-control-about {
-        position:absolute;
+        position: absolute;
+        float: left;
         display: none;
         width: 85%;
         max-width: 1000px;

@@ -69,7 +69,8 @@
         </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+    <script src="assets/js/particles.js"></script>
     <script>
         particlesJS.load('particles-js', './assets/particles/particles.json', function() {
             console.log('particles.js config loaded');
@@ -78,6 +79,7 @@
     <script>
         $(document).ready(function() {
 
+        // NEW BUTTON CLICK FUNCTIONALITY 
             // $(".navbar-start").on("click", ".content-item", function() {
             //     var x = $(this).data()["target"];
             //     var children = $(".navbar-start").children();
@@ -88,21 +90,42 @@
             //     console.log(arr);
             // })
 
-            $("#about-button").click(function() {
-                var x = $("#about").css("display")
-                if (x == "block") {
-                    $("#about").addClass("animated fadeOut").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
-                        function() {
-                        $(this).removeClass("animated fadeOut").css("display", "none");
-                    });
-                } else {
-                    $("#about").css("display", "block");
-                    $("#about").addClass("animated fadeIn").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
-                        function() {
-                        $(this).removeClass("animated fadeIn")
-                    });
-                }
-            });
+        // THIS WORKS    
+            // var body = document.body,
+            // html = document.documentElement;
+
+            // function getHeightInPixels()
+            // {
+            //     return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) + 'px';
+            // }
+
+            // $(window).on('resize', function(){
+            //     console.log("hello")
+            //     $('#particles-js').css({
+            //         height: getHeightInPixels
+            //     });
+            // });
+
+            // $('#particles-js').css({
+            //     height: getHeightInPixels()
+            // }); 
+
+// <!-- 
+//             $("#about-button").click(function() {
+//                 var x = $("#about").css("display")
+//                 if (x == "block") {
+//                     $("#about").addClass("animated fadeOut").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
+//                         function() {
+//                         $(this).removeClass("animated fadeOut").css("display", "none");
+//                     });
+//                 } else {
+//                     $("#about").css("display", "block");
+//                     $("#about").addClass("animated fadeIn").one("webkitAnimationEnd mozAnimationEnd animationend oAnimationEnd",
+//                         function() {
+//                         $(this).removeClass("animated fadeIn")
+//                     });
+//                 }
+//             }); -->
 
             $(".navbar-burger").click(function() {
                 $(".navbar-burger").toggleClass("is-active");

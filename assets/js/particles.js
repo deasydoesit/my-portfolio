@@ -226,6 +226,48 @@ var pJS = function(tag_id, params){
 
   };
 
+  //IM EDITING HERE
+  pJS.fn.canvasSizeOnClick = function(){
+
+    var clickedEl = document.getElementById('about-button');
+    var targetSize = document.getElementById('about');
+    var canvasCont = document.getElementById('particles-js');
+
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
+
+    clickedEl.addEventListener('click', function(){
+        targetSize.style.display = "block";
+        var height = targetSize.offsetHeight + 300 + "px";
+        canvasCont.style.height = height;
+        pJS.canvas.w = pJS.canvas.el.offsetWidth;
+        pJS.canvas.h = pJS.canvas.el.offsetHeight;
+
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+      /* density particles enabled */
+      pJS.fn.vendors.densityAutoParticles();
+
+    });
+
+  };
+  //IM DONE EDITING HERE
+
 
   pJS.fn.canvasPaint = function(){
     pJS.canvas.ctx.fillRect(0, 0, pJS.canvas.w, pJS.canvas.h);
@@ -1376,6 +1418,7 @@ var pJS = function(tag_id, params){
     pJS.fn.retinaInit();
     pJS.fn.canvasInit();
     pJS.fn.canvasSize();
+    pJS.fn.canvasSizeOnClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
     pJS.fn.vendors.densityAutoParticles();
