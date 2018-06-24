@@ -183,13 +183,29 @@
         margin: auto;
         background-color: rgba(0, 0, 0, 0.7) !important;
         border-radius: 10px;
+        padding: 1.2rem !important;
+    }
+
+    .content-header {
+        font-family: 'futura_md_btbold_italic';
+        font-size: 2rem;
+        color: white;
+    }
+
+    .header-padding-control {
+        padding: 0.25rem !important;
     }
 
     .about {
-        font-size: 1.34rem;        
+        font-size: 1.26rem;        
         font-family: 'futurabook';
         color: white;
         overflow: hidden;
+        text-align: left !important;
+    }
+
+    #me {
+        border-radius: 5px;
     }
 
 /*  Media Queries
@@ -200,5 +216,47 @@
         }
         #navMenu {
             background-color: rgba(0, 0, 0, 0.7) !important;
+        }
+    }
+
+    @media only screen and (min-width: 1088px) {
+        .columns-mobile {
+            display: none !important;
+        }
+    }
+
+    @media only screen and (max-width: 1087px) {
+        .hide-on-mobile {
+            display: none !important;
+        }
+    }
+
+    @media only screen and (min-width: 550px) and (max-width: 650px) {
+        .width-control-about { 
+            width: 75%;
+        }
+      }
+
+    @media only screen and (min-width: 650px) and (max-width: 800px) {
+        .width-control-about { 
+            width: 65%;
+        }
+    }
+
+    @media only screen and (min-width: 801px) and (max-width: 1087px) {
+        .width-control-about { 
+            width: 480px;
+        }
+    }
+
+    @media only screen and (min-width: 769px) and (max-width: 1087px) {
+        .is-three-fifths { 
+            width: 100% !important;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .width-control-about { 
+            top: 17.5%;
         }
     }

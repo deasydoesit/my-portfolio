@@ -19,7 +19,7 @@
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
-                <a class="navbar-item" href="#">
+                <a class="navbar-item">
                     <span id="darwin" class="name">DARWIN RINDERER</span>
                 </a>
             </div>
@@ -28,10 +28,10 @@
                     <a id="about-button" class="navbar-item content-item" data-target="#about">
                         <span class="header-word">About me</span>
                     </a>
-                    <a class="navbar-item content-item" data-target="#patents">
+                    <a id="patents-button" class="navbar-item content-item" data-target="#patents">
                         <span class="header-word">Drafted patents</span>
                     </a>
-                    <a class="navbar-item content-item" data-target="#dev">
+                    <a id="dev-button" class="navbar-item content-item" data-target="#dev">
                         <span class="header-word">Development</span>
                     </a>
                 </div>
@@ -56,20 +56,34 @@
             </div>
         </nav>
     </div>
-    <div id="particles-js">
-        <section id="about" class="section width-control-about">
-            <div class="columns">
-                <div class="column">
-                    <img id="me" src="./assets/images/myphoto.jpg">
-                </div>
-                <div class="column is-three-fifths">
-                    <p class="about">I am a software developer with experience in Java, C/C++, JavaScript, Node.js, and React.js, and have a passion for using my programming knowledge to bring ideas to life. In my previous role as a patent agent, I had the privilege of working with inventors at various Fortune 100 companies to draft and prosecute patent applications for their inventions in the computer arts. While I enjoyed the nuances and intricacies of patent law, I found myself becoming inspired by the inventors with whom I worked and increasingly captivated by the software development that goes into the materialization of inventions. In the next phase of my career, I seek a role as a software developer at a company where I can learn, grow, and continue to master the art of programming, as well as become an inventor myself.</p>
-                </div>
+    <div id="particles-js"></div>
+    <section id="about" class="section width-control-about">
+        <div class="columns columns-mobile">
+            <div class="column has-text-centered header-padding-control">
+                <span class="content-header">About Me</span>
             </div>
-        </section>
-    </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column">
+                <img id="me" src="./assets/images/myphoto.jpg">
+            </div>
+            <div class="column is-three-fifths">
+                <span class="content-header hide-on-mobile">About Me</span>
+                <p class="about">I am a software developer with experience in Java, C/C++, JavaScript, Node.js, and React.js, and have a passion for using my programming knowledge to bring ideas to life. In my previous role as a patent agent, I had the privilege of working with inventors at various Fortune 100 companies to draft and prosecute patent applications for their inventions in the computer arts. While I enjoyed the nuances and intricacies of patent law, I found myself becoming inspired by the inventors with whom I worked and increasingly captivated by the software development that goes into the materialization of inventions. In the next phase of my career, I seek a role as a software developer at a company where I can learn, grow, and continue to master the art of programming, as well as become an inventor myself.</p>
+            </div>
+        </div>
+    </section>
+    <section id="patents" class="section width-control-about">
+        <div class="columns">
+            <div class="column">
+                <img id="me" src="./assets/images/myphoto.jpg">
+            </div>
+            <div class="column is-three-fifths">
+                <p class="about">I am a software developer with experience in Java, C/C++, JavaScript, Node.js, and React.js, and have a passion for using my programming knowledge to bring ideas to life. In my previous role as a patent agent, I had the privilege of working with inventors at various Fortune 100 companies to draft and prosecute patent applications for their inventions in the computer arts. While I enjoyed the nuances and intricacies of patent law, I found myself becoming inspired by the inventors with whom I worked and increasingly captivated by the software development that goes into the materialization of inventions. In the next phase of my career, I seek a role as a software developer at a company where I can learn, grow, and continue to master the art of programming, as well as become an inventor myself.</p>
+            </div>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
     <script src="assets/js/particles.js"></script>
     <script>
         particlesJS.load('particles-js', './assets/particles/particles.json', function() {
