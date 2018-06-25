@@ -154,7 +154,7 @@
                 $(".navbar-menu").toggleClass("is-active");
             });
 
-            $("#about-button").click(function() {
+            $(".content-item").on('click', function () {
                 if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
                     $(".navbar-burger").toggleClass("is-active");
                     $(".navbar-menu").toggleClass("is-active");
