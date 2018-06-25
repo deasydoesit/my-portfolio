@@ -173,7 +173,6 @@
 
     .width-control-about {
         position: absolute;
-        float: left;
         display: none;
         width: 85%;
         max-width: 1000px;
@@ -207,6 +206,34 @@
     #me {
         border-radius: 5px;
     }
+
+    /* ---- Patents ---- */
+    .width-control-patents {
+        position: absolute;
+        display: none;
+        width: 85%;
+        max-width: 1000px;
+        top: 20.5%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 10px;
+        padding: 1.2rem !important;
+    }
+
+    .patents {
+        font-size: 1.26rem;        
+        font-family: 'futurabook';
+        color: white;
+        overflow: hidden;
+        text-align: left !important;
+    }
+
+    .patent-img {
+        width: 85%;
+    }
+
 
 /*  Media Queries
 ----------------------------------------------------------------*/

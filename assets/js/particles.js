@@ -245,13 +245,18 @@ var pJS = function(tag_id, params){
 
   //IM EDITING HERE
 
+  var aboutButton = document.getElementById('about-button');
+  var patentsButton = document.getElementById('patents-button');
+  var developmentButton = document.getElementById('dev-button');
+
   //About click
   pJS.fn.canvasSizeOnAboutClick = function(){
     //clicked button
-    var clickedButton = document.getElementById('about-button');
+    var clickedButton = this.id;
+    
 
     //element to be displayed
-    var about = document.getElementById('about');
+    var whichElement = document.getElementById(this.dataset.target);
 
     //canvas container
     var canvasCont = document.getElementById('particles-js');
@@ -266,42 +271,43 @@ var pJS = function(tag_id, params){
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    clickedButton.addEventListener('click', function(){
+    //display element corresponding to clicked button
+    whichElement.style.display = "block";
+    var targetHeight = (whichElement.offsetHeight + 234);
 
-        about.style.display = "block";
-        var targetHeight = (about.offsetHeight + 234);
-        if((about.offsetHeight + 150) > heightDoc) {
-          canvasCont.style.height = targetHeight + "px";
-          pJS.canvas.w = pJS.canvas.el.offsetWidth;
-          pJS.canvas.h = pJS.canvas.el.offsetHeight;
-        } else {
-          canvasCont.style.height = heightDoc + "px";
-          pJS.canvas.w = pJS.canvas.el.offsetWidth;
-          pJS.canvas.h = pJS.canvas.el.offsetHeight;
-        }  
-        /* resize canvas */
-        if(pJS.tmp.retina){
-          pJS.canvas.w *= pJS.canvas.pxratio;
-          pJS.canvas.h *= pJS.canvas.pxratio;
-        }
+    if((whichElement.offsetHeight + 150) > heightDoc) {
+      canvasCont.style.height = targetHeight + "px";
+      pJS.canvas.w = pJS.canvas.el.offsetWidth;
+      pJS.canvas.h = pJS.canvas.el.offsetHeight;
+    } else {
+      canvasCont.style.height = heightDoc + "px";
+      pJS.canvas.w = pJS.canvas.el.offsetWidth;
+      pJS.canvas.h = pJS.canvas.el.offsetHeight;
+    }  
+    /* resize canvas */
+    if(pJS.tmp.retina){
+      pJS.canvas.w *= pJS.canvas.pxratio;
+      pJS.canvas.h *= pJS.canvas.pxratio;
+    }
 
-        pJS.canvas.el.width = pJS.canvas.w;
-        pJS.canvas.el.height = pJS.canvas.h;
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
 
-        /* repaint canvas on anim disabled */
-        if(!pJS.particles.move.enable){
-          pJS.fn.particlesEmpty();
-          pJS.fn.particlesCreate();
-          pJS.fn.particlesDraw();
-          pJS.fn.vendors.densityAutoParticles();
-        }
-
-      /* density particles enabled */
+    /* repaint canvas on anim disabled */
+    if(!pJS.particles.move.enable){
+      pJS.fn.particlesEmpty();
+      pJS.fn.particlesCreate();
+      pJS.fn.particlesDraw();
       pJS.fn.vendors.densityAutoParticles();
+    }
 
-    });
+    /* density particles enabled */
+    pJS.fn.vendors.densityAutoParticles();
 
   };
+
+  aboutButton.addEventListener("click", pJS.fn.canvasSizeOnAboutClick, false);
+  patentsButton.addEventListener("click", pJS.fn.canvasSizeOnAboutClick, false);
 
   //DARWIN RINDERER CLICK
   pJS.fn.canvasSizeOnMainClick = function(){
@@ -1505,7 +1511,7 @@ var pJS = function(tag_id, params){
     pJS.fn.retinaInit();
     pJS.fn.canvasInit();
     pJS.fn.canvasSize();
-    pJS.fn.canvasSizeOnAboutClick();
+    // pJS.fn.canvasSizeOnAboutClick();
     pJS.fn.canvasSizeOnMainClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
