@@ -187,6 +187,11 @@
 
     .is-desktop {
         margin: 0 auto;
+        margin-bottom: 0 !important;
+    }
+
+    .is-three-fifths {
+        margin-top: -6px;
     }
 
     .content-header {
@@ -245,6 +250,9 @@
 
     .patent-img {
         width: 85%;
+        opacity: 1;
+        transition: .5s ease;
+        backface-visibility: hidden;
     }
 
     .margin-control-patents {
@@ -259,6 +267,63 @@
         margin-bottom: 0 !important;
     }
 
+    .fader-text {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        width: 70%;
+    }
+
+    .fader-view {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        width: 70%;
+    }
+      
+    .container:hover .patent-img {
+        opacity: 0.3;
+    }
+      
+    .container:hover .fader-text {
+        opacity: 1;
+    }
+
+    .container:hover .fader-view {
+        opacity: 1;
+    }
+      
+    .text {
+        background-color: #5578B2;
+        color: white;
+        font-family: 'futurabook';
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 0.3rem;
+        font-weight: bold;
+    }
+
+    .view {
+        background-color: #5DA1CE;
+        color: white;
+        font-family: 'futurabook';
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 0.3rem;
+        font-weight: bold;
+        padding-top: 10px;
+        width: 50%;
+    }
 
 /*  Media Queries
 ----------------------------------------------------------------*/
