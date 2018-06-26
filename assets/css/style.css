@@ -185,6 +185,10 @@
         padding: 1.2rem !important;
     }
 
+    .is-desktop {
+        margin: 0 auto;
+    }
+
     .content-header {
         font-family: 'futura_md_btbold_italic';
         font-size: 2rem;
@@ -207,6 +211,10 @@
         border-radius: 5px;
     }
 
+    .about-header-mobile {
+        margin-bottom: 0 !important;
+    }
+
     /* ---- Patents ---- */
     .width-control-patents {
         position: absolute;
@@ -222,6 +230,11 @@
         padding: 1.2rem !important;
     }
 
+    .patents-header {
+        margin-top: -10px;
+        margin-bottom: 0 !important;
+    }
+
     .patents {
         font-size: 1.26rem;        
         font-family: 'futurabook';
@@ -232,6 +245,18 @@
 
     .patent-img {
         width: 85%;
+    }
+
+    .margin-control-patents {
+        margin: 0 auto;
+    }
+
+    .has-patents {
+        width: 90%;
+    }
+
+    .patents-last-row {
+        margin-bottom: 0 !important;
     }
 
 
@@ -283,7 +308,7 @@
     }
 
     @media only screen and (max-width: 500px) {
-        .width-control-about { 
+        .width-control-about, .width-control-patents { 
             top: 17.5%;
         }
     }

@@ -195,7 +195,7 @@ var pJS = function(tag_id, params){
 
     var aboutSize = document.getElementById('about');
     var patentsSize = document.getElementById('patents');
-    
+
     var canvasCont = document.getElementById('particles-js');
 
     pJS.canvas.el.width = pJS.canvas.w;
@@ -205,7 +205,6 @@ var pJS = function(tag_id, params){
 
       window.addEventListener('resize', function(){
 
-        console.log(aboutSize.offsetHeight);
         var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
         var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + 234);
 
@@ -247,18 +246,13 @@ var pJS = function(tag_id, params){
 
   //IM EDITING HERE
 
-  var aboutButton = document.getElementById('about-button');
-  var patentsButton = document.getElementById('patents-button');
-  var developmentButton = document.getElementById('dev-button');
-
   //About click
   pJS.fn.canvasSizeOnAboutClick = function(){
-    //clicked button
-    var clickedButton = this.id;
-    
 
-    //element to be displayed
-    var whichElement = document.getElementById(this.dataset.target);
+    var aboutButton = document.getElementById('about-button');
+    var about = document.getElementById('about');
+
+    var patents = document.getElementById('patents');
 
     //canvas container
     var canvasCont = document.getElementById('particles-js');
@@ -273,43 +267,107 @@ var pJS = function(tag_id, params){
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    //display element corresponding to clicked button
-    whichElement.style.display = "block";
-    var targetHeight = (whichElement.offsetHeight + 234);
+    if(pJS){
 
-    if((whichElement.offsetHeight + 150) > heightDoc) {
-      canvasCont.style.height = targetHeight + "px";
-      pJS.canvas.w = pJS.canvas.el.offsetWidth;
-      pJS.canvas.h = pJS.canvas.el.offsetHeight;
-    } else {
-      canvasCont.style.height = heightDoc + "px";
-      pJS.canvas.w = pJS.canvas.el.offsetWidth;
-      pJS.canvas.h = pJS.canvas.el.offsetHeight;
-    }  
-    /* resize canvas */
-    if(pJS.tmp.retina){
-      pJS.canvas.w *= pJS.canvas.pxratio;
-      pJS.canvas.h *= pJS.canvas.pxratio;
+      aboutButton.addEventListener('click', function(){
+        //display element corresponding to clicked button
+        patents.style.display = "none";
+        about.style.display = "block";
+
+        var targetHeight = about.offsetHeight + 234;
+
+        if((about.offsetHeight + 150) > heightDoc) {
+          canvasCont.style.height = targetHeight + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        } else {
+          canvasCont.style.height = heightDoc + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        }  
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+        /* density particles enabled */
+        pJS.fn.vendors.densityAutoParticles();
+      });
     }
+  };
 
+  //Patents click
+  pJS.fn.canvasSizeOnPatentsClick = function(){
+
+    var patentsButton = document.getElementById('patents-button');
+    var patents = document.getElementById('patents');
+    
+    var about = document.getElementById('about');
+
+    //canvas container
+    var canvasCont = document.getElementById('particles-js');
+
+    //body height
+    var body = document.body;
+    var html = document.documentElement;
+
+    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+
+    //canvas dimensions 
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    /* repaint canvas on anim disabled */
-    if(!pJS.particles.move.enable){
-      pJS.fn.particlesEmpty();
-      pJS.fn.particlesCreate();
-      pJS.fn.particlesDraw();
-      pJS.fn.vendors.densityAutoParticles();
+    if(pJS){
+
+      patentsButton.addEventListener('click', function(){
+        //display element corresponding to clicked button
+        about.style.display = "none";
+        patents.style.display = "block";
+        var targetHeight = (patents.offsetHeight + 234);
+
+        if((patents.offsetHeight + 150) > heightDoc) {
+          canvasCont.style.height = targetHeight + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        } else {
+          canvasCont.style.height = heightDoc + "px";
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        }  
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+        /* density particles enabled */
+        pJS.fn.vendors.densityAutoParticles();
+      });
     }
-
-    /* density particles enabled */
-    pJS.fn.vendors.densityAutoParticles();
-
   };
-
-  aboutButton.addEventListener("click", pJS.fn.canvasSizeOnAboutClick, false);
-  patentsButton.addEventListener("click", pJS.fn.canvasSizeOnAboutClick, false);
 
   //DARWIN RINDERER CLICK
   pJS.fn.canvasSizeOnMainClick = function(){
@@ -318,7 +376,8 @@ var pJS = function(tag_id, params){
 
     //canvas container
     var canvasCont = document.getElementById('particles-js');
-    var aboutSize = document.getElementById('about');
+    var about = document.getElementById('about');
+    var patents = document.getElementById('patents');
 
     //body height
     var body = document.body;
@@ -332,7 +391,8 @@ var pJS = function(tag_id, params){
 
     clickedButton.addEventListener('click', function(){
 
-        aboutSize.style.display = "none";
+        about.style.display = "none";
+        patents.style.display = "none";
 
         canvasCont.style.height = heightDoc + "px";
         pJS.canvas.w = pJS.canvas.el.offsetWidth;
@@ -1513,7 +1573,8 @@ var pJS = function(tag_id, params){
     pJS.fn.retinaInit();
     pJS.fn.canvasInit();
     pJS.fn.canvasSize();
-    // pJS.fn.canvasSizeOnAboutClick();
+    pJS.fn.canvasSizeOnAboutClick();
+    pJS.fn.canvasSizeOnPatentsClick();
     pJS.fn.canvasSizeOnMainClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
