@@ -333,7 +333,7 @@
 
     .width-control-development {
         position: absolute;
-        /* display: none; */
+        display: none;
         width: 85%;
         max-width: 1000px;
         top: 20.5%;
@@ -346,8 +346,7 @@
     }
 
     .development-header {
-        margin-top: -10px;
-        margin-bottom: 0 !important;
+        margin: 0 !important;
     }
 
     .development {

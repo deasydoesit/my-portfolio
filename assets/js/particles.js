@@ -195,6 +195,7 @@ var pJS = function(tag_id, params){
 
     var aboutSize = document.getElementById('about');
     var patentsSize = document.getElementById('patents');
+    var devSize = document.getElementById('development');
 
     var canvasCont = document.getElementById('particles-js');
 
@@ -206,9 +207,9 @@ var pJS = function(tag_id, params){
       window.addEventListener('resize', function(){
 
         var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
-        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + 234);
+        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 234);
 
-        if((about.offsetHeight + patentsSize.offsetHeight + 150) > heightDoc) {
+        if((about.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
