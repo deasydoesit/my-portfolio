@@ -113,6 +113,10 @@
         color: #DCDCDC;
     }
 
+    .navbar-burger {
+        width: 2.5rem;
+    }
+
     .name {
         font-family: 'futura_md_btbold_italic';
         font-size: 2rem;
