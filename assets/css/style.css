@@ -117,6 +117,10 @@
         width: 2.5rem;
     }
 
+    .name-item {
+        padding-left: 0.25rem;
+    }
+
     .name {
         font-family: 'futura_md_btbold_italic';
         font-size: 2rem;
