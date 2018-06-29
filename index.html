@@ -261,6 +261,12 @@
             //     height: getHeightInPixels()
             // }); 
 
+            // $('body').on("click", ':not(.navbar-burger, .content-item', function(){
+            //     if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
+            //         $(".navbar-burger").toggleClass("is-active");
+            //         $(".navbar-menu").toggleClass("is-active");
+            //     }
+            // });
 
             $(".navbar-burger").click(function() {
                 $(".navbar-burger").toggleClass("is-active");
@@ -268,13 +274,6 @@
             });
 
             $(".content-item").on('click', function () {
-                if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
-                    $(".navbar-burger").toggleClass("is-active");
-                    $(".navbar-menu").toggleClass("is-active");
-                }
-            });
-
-            $('body').on("click", ':not(.navbar-burger, .content-item', function(){
                 if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
                     $(".navbar-burger").toggleClass("is-active");
                     $(".navbar-menu").toggleClass("is-active");
