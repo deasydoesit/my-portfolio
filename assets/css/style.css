@@ -177,6 +177,10 @@
         margin-left: inherit;
     }
 
+    .navbar-burger:hover {
+        background-color: rgba(0,0,0,0);
+    }
+
     /* ---- About ---- */
 
     .width-control-about {
@@ -382,6 +386,14 @@
         font-family: 'futurabook';
     }
     
+    .has-development {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .development-last-row {
+        margin-bottom: 0 !important;
+    }
 
 /*  Media Queries
 ----------------------------------------------------------------*/
@@ -431,7 +443,8 @@
     }
 
     @media only screen and (max-width: 500px) {
-        .width-control-about, .width-control-patents { 
+        .width-control-about, .width-control-patents, .width-control-development { 
             top: 17.5%;
+            width: 95%;
         }
     }
