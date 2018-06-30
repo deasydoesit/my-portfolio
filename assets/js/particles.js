@@ -532,25 +532,25 @@ var pJS = function(tag_id, params){
 
       burgerButton.addEventListener('click', function(){
         console.log(navMenu.classList.contains("is-ative"));
-        if (patents.style.display == "block" && navMenu.classList.contains("is-active")) {
+        if (patents.style.display == "block" && !navMenu.classList.contains("is-active")) {
           patents.style.top = '41.5%';
           changeHeight(patents);
           console.log('hello000');
-        } else if (about.style.display == "block" && navMenu.classList.contains("is-active")) {
+        } else if (about.style.display == "block" && !navMenu.classList.contains("is-active")) {
           about.style.top = '41.5%';
           changeHeight(about);
-        } else if (development.style.display == "block" && navMenu.classList.contains("is-active")) {
+        } else if (development.style.display == "block" && !navMenu.classList.contains("is-active")) {
           development.style.top = '41.5%';
           changeHeight(development);
         }
 
-        if (patents.style.display == "block" && !navMenu.classList.contains("is-active")) {
+        if (patents.style.display == "block" && navMenu.classList.contains("is-active")) {
           patents.style.top = '17.5%';
           changeHeight(patents);
-        } else if (about.style.display == "block" && !navMenu.classList.contains("is-active")) {
+        } else if (about.style.display == "block" && navMenu.classList.contains("is-active")) {
           about.style.top = '17.5%';
           changeHeight(about);
-        } else if (development.style.display == "block" && !navMenu.classList.contains("is-active")) {
+        } else if (development.style.display == "block" && navMenu.classList.contains("is-active")) {
           development.style.top = '17.5%';
           changeHeight(development);
         }
