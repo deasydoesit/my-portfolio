@@ -207,7 +207,7 @@ var pJS = function(tag_id, params){
       window.addEventListener('resize', function(){
 
         var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
-        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 234);
+        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 200);
 
         if((about.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -282,7 +282,7 @@ var pJS = function(tag_id, params){
         //display element corresponding to clicked button
         about.style.display = "block";
 
-        var targetHeight = about.offsetHeight + 234;
+        var targetHeight = about.offsetHeight + 200;
 
         if((about.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -350,7 +350,7 @@ var pJS = function(tag_id, params){
 
         //display element corresponding to clicked button
         patents.style.display = "block";
-        var targetHeight = (patents.offsetHeight + 234);
+        var targetHeight = (patents.offsetHeight + 200);
 
         if((patents.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -419,7 +419,7 @@ var pJS = function(tag_id, params){
         //display element corresponding to clicked button
         development.style.display = "block";
 
-        var targetHeight = (development.offsetHeight + 234);
+        var targetHeight = (development.offsetHeight + 200);
 
         if((development.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -510,6 +510,105 @@ var pJS = function(tag_id, params){
 
     });
 
+  };
+
+  //Burger click
+  pJS.fn.canvasSizeOnBurgerClick = function(){
+
+    //isolate about button for on click listener
+    var burgerButton = document.getElementById('nav-burger');
+    var navMenu = document.getElementById('navMenu');
+    
+    //section containers
+    var patents = document.getElementById('patents');
+    var about = document.getElementById('about');
+    var development = document.getElementById('development');
+
+    //canvas container
+    var canvasCont = document.getElementById('particles-js');
+
+    //body height
+    var body = document.body;
+    var html = document.documentElement;
+
+    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+
+    //canvas dimensions 
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
+    console.log('hello');
+    if(pJS){
+
+      burgerButton.addEventListener('click', function(){
+        console.log(navMenu.classList.contains("is-ative"));
+        if (patents.style.display == "block" && !navMenu.classList.contains("is-active")) {
+          patents.style.top = '41.5%';
+          changeHeight(patents);
+          console.log('hello000');
+        } else if (about.style.display == "block" && !navMenu.classList.contains("is-active")) {
+          about.style.top = '41.5%';
+          changeHeight(about);
+        } else if (development.style.display == "block" && !navMenu.classList.contains("is-active")) {
+          development.style.top = '41.5%';
+          changeHeight(development);
+        }
+
+        if (patents.style.display == "block" && navMenu.classList.contains("is-active")) {
+          patents.style.top = '17.5%';
+          changeHeight(patents);
+        } else if (about.style.display == "block" && navMenu.classList.contains("is-active")) {
+          about.style.top = '17.5%';
+          changeHeight(about);
+        } else if (development.style.display == "block" && navMenu.classList.contains("is-active")) {
+          development.style.top = '17.5%';
+          changeHeight(development);
+        }
+
+        function changeHeight(item) {
+          console.log(item);
+          var canvasCont = document.getElementById('particles-js');
+          var body = document.body;
+          var html = document.documentElement;
+      
+          var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+          var targetHeight = item.offsetHeight + 234 + 110;
+          var targetHeight2 = item.offsetHeight + 200;
+
+          if(((item.offsetHeight + 150) > heightDoc) && !navMenu.classList.contains("is-active")) {
+            canvasCont.style.height = targetHeight + "px";
+            pJS.canvas.w = pJS.canvas.el.offsetWidth;
+            pJS.canvas.h = pJS.canvas.el.offsetHeight;
+          } else if (((item.offsetHeight + 150) > heightDoc) && navMenu.classList.contains("is-active")) {
+            canvasCont.style.height = targetHeight2 + "px";
+            pJS.canvas.w = pJS.canvas.el.offsetWidth;
+            pJS.canvas.h = pJS.canvas.el.offsetHeight;
+          } else {
+            canvasCont.style.height = heightDoc + "px";
+            pJS.canvas.w = pJS.canvas.el.offsetWidth;
+            pJS.canvas.h = pJS.canvas.el.offsetHeight;
+          }  
+          /* resize canvas */
+          if(pJS.tmp.retina){
+            pJS.canvas.w *= pJS.canvas.pxratio;
+            pJS.canvas.h *= pJS.canvas.pxratio;
+          }
+
+          pJS.canvas.el.width = pJS.canvas.w;
+          pJS.canvas.el.height = pJS.canvas.h;
+
+          /* repaint canvas on anim disabled */
+          if(!pJS.particles.move.enable){
+            pJS.fn.particlesEmpty();
+            pJS.fn.particlesCreate();
+            pJS.fn.particlesDraw();
+            pJS.fn.vendors.densityAutoParticles();
+          }
+
+          /* density particles enabled */
+          pJS.fn.vendors.densityAutoParticles();
+        }
+      });
+    }
   };
   //IM DONE EDITING HERE
 
@@ -1666,6 +1765,7 @@ var pJS = function(tag_id, params){
     pJS.fn.canvasSizeOnAboutClick();
     pJS.fn.canvasSizeOnPatentsClick();
     pJS.fn.canvasSizeOnDevClick();
+    pJS.fn.canvasSizeOnBurgerClick();
     pJS.fn.canvasSizeOnMainClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
