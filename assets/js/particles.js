@@ -250,6 +250,8 @@ var pJS = function(tag_id, params){
   //About click
   pJS.fn.canvasSizeOnAboutClick = function(){
 
+    var navMenu = document.getElementById('navMenu');
+
     //isolate about button for on click listener
     var aboutButton = document.getElementById('about-button');
     
@@ -281,6 +283,10 @@ var pJS = function(tag_id, params){
 
         //display element corresponding to clicked button
         about.style.display = "block";
+
+        if (navMenu.classList.contains("is-active")) {
+          about.style.top = '17.5%';
+        }
 
         var targetHeight = about.offsetHeight + 200;
 
@@ -319,6 +325,8 @@ var pJS = function(tag_id, params){
   //Patents click
   pJS.fn.canvasSizeOnPatentsClick = function(){
 
+    var navMenu = document.getElementById('navMenu');
+
     //isolate patents button for on click listener
     var patentsButton = document.getElementById('patents-button');
 
@@ -350,6 +358,11 @@ var pJS = function(tag_id, params){
 
         //display element corresponding to clicked button
         patents.style.display = "block";
+
+        if (navMenu.classList.contains("is-active")) {
+          patents.style.top = '17.5%';
+        }
+
         var targetHeight = (patents.offsetHeight + 200);
 
         if((patents.offsetHeight + 150) > heightDoc) {
@@ -387,6 +400,8 @@ var pJS = function(tag_id, params){
   //Development Click
   pJS.fn.canvasSizeOnDevClick = function(){
 
+    var navMenu = document.getElementById('navMenu');
+
     //isolate dev button for on click listener
     var devButton = document.getElementById('dev-button');
 
@@ -418,6 +433,10 @@ var pJS = function(tag_id, params){
 
         //display element corresponding to clicked button
         development.style.display = "block";
+
+        if (navMenu.classList.contains("is-active")) {
+          development.style.top = '17.5%';
+        }
 
         var targetHeight = (development.offsetHeight + 200);
 
