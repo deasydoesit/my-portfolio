@@ -524,15 +524,6 @@ var pJS = function(tag_id, params){
     var about = document.getElementById('about');
     var development = document.getElementById('development');
 
-    //canvas container
-    var canvasCont = document.getElementById('particles-js');
-
-    //body height
-    var body = document.body;
-    var html = document.documentElement;
-
-    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
-
     //canvas dimensions 
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
@@ -574,11 +565,11 @@ var pJS = function(tag_id, params){
           var targetHeight = item.offsetHeight + 234 + 110;
           var targetHeight2 = item.offsetHeight + 200;
 
-          if(((item.offsetHeight + 150) > heightDoc) && !navMenu.classList.contains("is-active")) {
+          if(((item.offsetHeight + 150) > heightDoc) && navMenu.classList.contains("is-active")) {
             canvasCont.style.height = targetHeight + "px";
             pJS.canvas.w = pJS.canvas.el.offsetWidth;
             pJS.canvas.h = pJS.canvas.el.offsetHeight;
-          } else if (((item.offsetHeight + 150) > heightDoc) && navMenu.classList.contains("is-active")) {
+          } else if (((item.offsetHeight + 150) > heightDoc) && !navMenu.classList.contains("is-active")) {
             canvasCont.style.height = targetHeight2 + "px";
             pJS.canvas.w = pJS.canvas.el.offsetWidth;
             pJS.canvas.h = pJS.canvas.el.offsetHeight;
