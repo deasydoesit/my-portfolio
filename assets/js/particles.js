@@ -511,6 +511,64 @@ var pJS = function(tag_id, params){
     });
 
   };
+
+  pJS.fn.canvasSizeOnBurgerClick = function(){
+
+    //isloate name for on click listener
+    var clickedButton = document.getElementById('nav-burger');
+
+    //section containers
+    var about = document.getElementById('about');
+    var patents = document.getElementById('patents');
+    var development = document.getElementById('development');
+
+    //canvas container
+    var canvasCont = document.getElementById('particles-js');
+
+    //body height
+    var body = document.body;
+    var html = document.documentElement;
+
+    var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
+
+    //canvas dimensions 
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
+
+    clickedButton.addEventListener('click', function(){
+
+        //hide all containers
+        about.style.display = "none";
+        patents.style.display = "none";
+        development.style.display = "none";
+
+        canvasCont.style.height = heightDoc + "px";
+        pJS.canvas.w = pJS.canvas.el.offsetWidth;
+        pJS.canvas.h = pJS.canvas.el.offsetHeight;
+        
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+      /* density particles enabled */
+      pJS.fn.vendors.densityAutoParticles();
+
+    });
+
+  };
   //IM DONE EDITING HERE
 
 
@@ -1667,6 +1725,7 @@ var pJS = function(tag_id, params){
     pJS.fn.canvasSizeOnPatentsClick();
     pJS.fn.canvasSizeOnDevClick();
     pJS.fn.canvasSizeOnMainClick();
+    pJS.fn.canvasSizeOnBurgerClick();
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
     pJS.fn.vendors.densityAutoParticles();
