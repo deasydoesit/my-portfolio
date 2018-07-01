@@ -14,12 +14,12 @@
     <div class="width-control-header">
         <nav class="navbar is-transparent sit-behind">
             <div class="navbar-brand">
-                <a id="nav-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <a id="nav-burger" role="button" class="navbar-burger sidenav-trigger" aria-label="menu" aria-expanded="false" data-target="navMenu">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
-                <a class="navbar-item name-item">
+                <a class="navbar-item name-item content-item">
                     <span id="darwin" class="name">DARWIN RINDERER</span>
                 </a>
             </div>
@@ -229,7 +229,6 @@
     </script>
     <script>
         $(document).ready(function() {
-
         // NEW BUTTON CLICK FUNCTIONALITY 
             // $(".navbar-start").on("click", ".content-item", function() {
             //     var x = $(this).data()["target"];
@@ -268,7 +267,25 @@
             //     }
             // });
 
+            var reveal = "";
+
             $(".navbar-burger").click(function() {
+                if ($("#development").css("display") == "block") {
+                    reveal = $("#development");
+                    $("#development").hide();
+                }
+                if ($("#patents").css("display") == "block") {
+                    reveal = $("#patents");
+                    $("#patents").hide();
+                }
+                if ($("#about").css("display") == "block") {
+                    reveal = $("#about")
+                    $("#about").hide();
+                }
+                // if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active") && reveal) {
+                //     reveal.css("display", "block");
+                //     reveal = "";
+                // }
                 $(".navbar-burger").toggleClass("is-active");
                 $(".navbar-menu").toggleClass("is-active");
             });
@@ -277,6 +294,7 @@
                 if ($(".navbar-burger").hasClass("is-active") && $(".navbar-menu").hasClass("is-active")) {
                     $(".navbar-burger").toggleClass("is-active");
                     $(".navbar-menu").toggleClass("is-active");
+                    // reveal = "";
                 }
             });
     });
