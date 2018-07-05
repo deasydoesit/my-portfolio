@@ -207,7 +207,7 @@ var pJS = function(tag_id, params){
       window.addEventListener('resize', function(){
 
         var heightDoc = Math.max( body.offsetHeight, html.clientHeight, html.offsetHeight );
-        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 234);
+        var targetHeight = (aboutSize.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 200);
 
         if((about.offsetHeight + patentsSize.offsetHeight + devSize.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -282,7 +282,7 @@ var pJS = function(tag_id, params){
         //display element corresponding to clicked button
         about.style.display = "block";
 
-        var targetHeight = about.offsetHeight + 234;
+        var targetHeight = about.offsetHeight + 200;
 
         if((about.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -350,7 +350,7 @@ var pJS = function(tag_id, params){
 
         //display element corresponding to clicked button
         patents.style.display = "block";
-        var targetHeight = (patents.offsetHeight + 234);
+        var targetHeight = (patents.offsetHeight + 200);
 
         if((patents.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
@@ -419,7 +419,7 @@ var pJS = function(tag_id, params){
         //display element corresponding to clicked button
         development.style.display = "block";
 
-        var targetHeight = (development.offsetHeight + 234);
+        var targetHeight = (development.offsetHeight + 200);
 
         if((development.offsetHeight + 150) > heightDoc) {
           canvasCont.style.height = targetHeight + "px";
